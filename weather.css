@@ -1,0 +1,249 @@
+/* Reset CSS */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+/* Main container for weather app */
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 450px;
+    min-height: 100vh;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    /* overflow: hidden; */
+}
+
+/* Header Search Styling */
+.headerSearch {
+    display: flex;
+    align-items: center;
+    background-color: #AFCBF5;
+    padding: 15px;
+    text-align: center;
+    color: #ffffff;
+    justify-content: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.headerSearch .search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    max-width: 90%;
+    width: 100%; /* Full width to use available space */
+    max-width: 400px; /* Maximum width to prevent stretching */
+    padding-right: 5px; /* Reduce right padding inside the search bar */
+    margin-left: 5rem;
+    /* justify-content: center; */
+}
+
+.headerSearch .search input[type="text"] {
+    flex: 1;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    color: #333;
+    background-color: #f0f0f0;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    border-radius: 25px; /* Rounded corners */
+}
+
+.headerSearch .search input[type="text"]::placeholder {
+    color: #888888;
+}
+
+/* Button with hover effect */
+.headerSearch .search button {
+    background-color: #004d40;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease;
+    border-radius: 50%; /* Fully rounded */
+    margin-right: 0; /* Remove any right margin */
+}
+
+.headerSearch .search button:hover {
+    background-color: #00695c;
+    transform: scale(1.05); /* Slight scaling */
+}
+
+.headerSearch .search button img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Weather Main Content Styling */
+.weather {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.weather img {
+    width: 100px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.temp {
+    font-size: 3rem;
+    color: #333333;
+    font-weight: 600;
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Temperature text hover effect */
+.temp:hover {
+    color: #ff5722; /* Changes to a warmer color on hover */
+}
+
+.city {
+    font-size: 1.5rem;
+    color: #666666;
+    transition: color 0.3s ease;
+}
+
+/* City name hover effect */
+.city:hover {
+    color: #333333; /* Darker color on hover */
+}
+
+/* Weather Details Section Styling */
+.detail {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    padding: 25px;
+    background: linear-gradient(145deg, #e0f2f1, #ffffff);
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    transform: scale(1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.detail .col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slight transparency */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect on detail boxes */
+.detail .col:hover {
+    transform: translateY(-10px); /* Slight lift */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    background-color: #f5f5f5; /* Lighter background on hover */
+}
+
+.detail .col img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Scaling icons on hover */
+.detail .col:hover img {
+    transform: scale(1.1);
+}
+
+.humidity, .wind {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #00796b;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for text */
+.humidity:hover,
+.wind:hover {
+    color: #004d40;
+}
+
+.detail p {
+    color: #555555;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+/* Add a tooltip for additional info */
+.detail .col:hover::after {
+    content: attr(data-tooltip); /* Tooltip text from data attribute */
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Show tooltip on hover */
+.detail .col:hover::after {
+    opacity: 1;
+}
+
+/* Hover effect for the entire detail section */
+.detail:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #AFCBF5;
+    text-align: center;
+    padding: 15px;
+    color: #ffffff;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.footer a {
+    color: #0066ff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: red; 
+}
